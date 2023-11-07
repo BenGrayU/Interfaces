@@ -1,6 +1,5 @@
 import java.lang.reflect.Constructor;
 import java.util.*;
-import java.util.Timer;
 
 public class Test implements CollectionTest{
 
@@ -12,31 +11,45 @@ public class Test implements CollectionTest{
 
     @Override
     public void setSize(int size) {
-
+        for (int i = 0; i < size; i++) {
+            Person p = new Person("a", 20);
+            peopleArrayList.add(p);
+            peopleLinkedList.add(p);
+            peopleHashMap.put(Integer.toString(p.hashCode()), p);
+        }
     }
 
     @Override
     public void runTest(CollectionType type, TestType test, int iterations) {
-        Timer time = new Timer();
+        long start_time = 0;
+        long end_time = 0;
         switch (type){
             case ARRAY_LIST:
-                for (int i = 0; i < 100; i++) {
-                    Person p = new Person("a", 19);
-                    peopleLinkedList.add(p);
-                }
                 switch (test){
                     case ADD:
-                        t.
-                        //add person
-                        //stop timer
+                        for (int i = 0; i < iterations; i++) {
+                            start_time = System.nanoTime();
+                            Person p = new Person("a", 20);
+                            addperson(p);
+                            end_time = System.nanoTime();
+                            System.out.println((end_time-start_time));
+                        }
                         break;
                     case INDEX:
-                        //start timer
-                        //get at index i
-                        //end timer
+                        for (int i = 0; i < iterations; i++) {
+                            start_time = System.nanoTime();
+                            //not too sure what to do here
+                            end_time = System.nanoTime();
+                            System.out.println((end_time - start_time));
+                        }
                         break;
                     case SEARCH:
-
+                        for (int i = 0; i < iterations; i++) {
+                            start_time = System.nanoTime();
+                            peopleArrayList.indexOf(null);//for now
+                            end_time = System.nanoTime();
+                            System.out.println((end_time - start_time));
+                        }
                         break;
                 }
                 break;
@@ -44,7 +57,12 @@ public class Test implements CollectionTest{
                 break;
             case LINKED_LIST:
                 break;
+
         }
+    }
+
+    public void addperson(Person person){
+        peopleArrayList.add(person);
     }
 
 }
