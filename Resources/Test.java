@@ -1,5 +1,6 @@
 import java.lang.reflect.Constructor;
 import java.util.*;
+import java.util.Timer;
 
 public class Test implements CollectionTest{
 
@@ -16,6 +17,7 @@ public class Test implements CollectionTest{
 
     @Override
     public void runTest(CollectionType type, TestType test, int iterations) {
+        Timer time = new Timer();
         switch (type){
             case ARRAY_LIST:
                 for (int i = 0; i < 100; i++) {
@@ -24,7 +26,7 @@ public class Test implements CollectionTest{
                 }
                 switch (test){
                     case ADD:
-                        //start timer
+                        t.
                         //add person
                         //stop timer
                         break;
@@ -34,6 +36,7 @@ public class Test implements CollectionTest{
                         //end timer
                         break;
                     case SEARCH:
+
                         break;
                 }
                 break;
@@ -45,3 +48,4 @@ public class Test implements CollectionTest{
     }
 
 }
+
