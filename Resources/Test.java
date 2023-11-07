@@ -1,6 +1,7 @@
 import java.lang.reflect.Constructor;
 import java.util.*;
 
+
 public class Test implements CollectionTest{
 
     ArrayList<Person> peopleArrayList = new ArrayList<>();
@@ -32,23 +33,25 @@ public class Test implements CollectionTest{
                             Person p = new Person("a", 20);
                             addperson(p);
                             end_time = System.nanoTime();
-                            System.out.println((end_time-start_time));
+                            System.out.println("Add: " + (end_time-start_time));
                         }
                         break;
                     case INDEX:
                         for (int i = 0; i < iterations; i++) {
+                            Random rand = new Random();
+                            int index = rand.nextInt(peopleArrayList.size());
                             start_time = System.nanoTime();
-                            //not too sure what to do here
+                            peopleArrayList.get(index);
                             end_time = System.nanoTime();
-                            System.out.println((end_time - start_time));
+                            System.out.println("Index: " + (end_time - start_time));
                         }
                         break;
                     case SEARCH:
                         for (int i = 0; i < iterations; i++) {
                             start_time = System.nanoTime();
-                            peopleArrayList.indexOf(null);//for now
+                            //peopleArrayList.indexOf(null);for now
                             end_time = System.nanoTime();
-                            System.out.println((end_time - start_time));
+                            System.out.println("Search: " + (end_time - start_time));
                         }
                         break;
                 }
