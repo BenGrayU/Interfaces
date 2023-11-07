@@ -22,15 +22,26 @@ public class Test implements CollectionTest{
                     Person p = new Person("a", 19);
                     peopleLinkedList.add(p);
                 }
+                switch (test){
+                    case ADD:
+                        //start timer
+                        //add person
+                        //stop timer
+                        break;
+                    case INDEX:
+                        //start timer
+                        //get at index i
+                        //end timer
+                        break;
+                    case SEARCH:
+                        break;
+                }
                 break;
             case HASH_MAP:
                 break;
             case LINKED_LIST:
                 break;
         }
-
-
-
     }
 
 }
