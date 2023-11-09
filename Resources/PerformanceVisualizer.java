@@ -4,7 +4,7 @@ import java.io.*;
 
 public class PerformanceVisualizer
 {
-    boolean debug = false;
+    boolean debug = true;
 
     HashMap<String, Long> dataSet = new HashMap<>();
     int minimum; 
