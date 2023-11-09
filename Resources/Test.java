@@ -85,24 +85,26 @@ public class Test implements CollectionTest{
         }
     }
 
-    public void addpersonArrayList(){
+    public long addpersonArrayList(){
         long start_time = System.nanoTime();
         Person p = new Person("a", 20);
         peopleArrayList.add(p);
         long end_time = System.nanoTime();
         System.out.println("Add: " + (end_time-start_time));
+        return (end_time-start_time);
     }
 
-    public void indexPersonArrayList(){
+    public long indexPersonArrayList(){
         Random rand = new Random();
         int index = rand.nextInt(peopleArrayList.size());
         long start_time = System.nanoTime();
         peopleArrayList.get(index);
         long end_time = System.nanoTime();
         System.out.println("Index: " + (end_time - start_time));
+        return (end_time-start_time);
     }
 
-    public void searchPersonArrayList(){
+    public long searchPersonArrayList(){
         Random rand = new Random();
         int index = rand.nextInt(peopleArrayList.size());
         Person p = peopleArrayList.get(index);
@@ -110,6 +112,37 @@ public class Test implements CollectionTest{
         peopleArrayList.indexOf(p);
         long end_time = System.nanoTime();
         System.out.println("Search: " + (end_time - start_time));
+        return (end_time-start_time);
+    }
+
+    public long addpersonLinkedList(){
+        long start_time = System.nanoTime();
+        Person p = new Person("a", 20);
+        peopleLinkedList.add(p);
+        long end_time = System.nanoTime();
+        System.out.println("Add: " + (end_time-start_time));
+        return (end_time-start_time);
+    }
+
+    public long searchPersonLinkedList(){
+        Random rand = new Random();
+        int index = rand.nextInt(peopleArrayList.size());
+        Person p = peopleArrayList.get(index);
+        long start_time = System.nanoTime();
+        peopleLinkedList.indexOf(p);
+        long end_time = System.nanoTime();
+        System.out.println("Search: " + (end_time - start_time));
+        return (end_time-start_time);
+    }
+
+    public long indexPersonLinkedList(){
+        Random rand = new Random();
+        int index = rand.nextInt(peopleArrayList.size());
+        long start_time = System.nanoTime();
+        peopleArrayList.get(index);
+        long end_time = System.nanoTime();
+        System.out.println("Index: " + (end_time - start_time));
+        return (end_time-start_time);
     }
 
 }
