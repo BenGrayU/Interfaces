@@ -22,50 +22,94 @@ public class Test implements CollectionTest{
 
     @Override
     public void runTest(CollectionType type, TestType test, int iterations) {
-        long start_time = 0;
-        long end_time = 0;
+
         switch (type){
             case ARRAY_LIST:
                 switch (test){
                     case ADD:
                         for (int i = 0; i < iterations; i++) {
-                            start_time = System.nanoTime();
-                            Person p = new Person("a", 20);
-                            addperson(p);
-                            end_time = System.nanoTime();
-                            System.out.println("Add: " + (end_time-start_time));
+                            addpersonArrayList();
                         }
                         break;
                     case INDEX:
                         for (int i = 0; i < iterations; i++) {
-                            Random rand = new Random();
-                            int index = rand.nextInt(peopleArrayList.size());
-                            start_time = System.nanoTime();
-                            peopleArrayList.get(index);
-                            end_time = System.nanoTime();
-                            System.out.println("Index: " + (end_time - start_time));
+                            indexPersonArrayList();
                         }
                         break;
                     case SEARCH:
                         for (int i = 0; i < iterations; i++) {
-                            start_time = System.nanoTime();
-                            //peopleArrayList.indexOf(null);for now
-                            end_time = System.nanoTime();
-                            System.out.println("Search: " + (end_time - start_time));
+                            searchPersonArrayList();
                         }
                         break;
                 }
                 break;
             case HASH_MAP:
+                switch (test){
+                    case ADD:
+                        for (int i = 0; i < iterations; i++) {
+                            addpersonArrayList();
+                        }
+                        break;
+                    case INDEX:
+                        for (int i = 0; i < iterations; i++) {
+                            indexPersonArrayList();
+                        }
+                        break;
+                    case SEARCH:
+                        for (int i = 0; i < iterations; i++) {
+                            searchPersonArrayList();
+                        }
+                        break;
+                }
                 break;
             case LINKED_LIST:
+                switch (test){
+                    case ADD:
+                        for (int i = 0; i < iterations; i++) {
+                            addpersonLinkedList();
+                        }
+                        break;
+                    case INDEX:
+                        for (int i = 0; i < iterations; i++) {
+                            indexPersonLinkedList();
+                        }
+                        break;
+                    case SEARCH:
+                        for (int i = 0; i < iterations; i++) {
+                            searchPersonLinkedList();
+                        }
+                        break;
+                }
                 break;
 
         }
     }
 
-    public void addperson(Person person){
-        peopleArrayList.add(person);
+    public void addpersonArrayList(){
+        long start_time = System.nanoTime();
+        Person p = new Person("a", 20);
+        peopleArrayList.add(p);
+        long end_time = System.nanoTime();
+        System.out.println("Add: " + (end_time-start_time));
+    }
+
+    public void indexPersonArrayList(){
+        Random rand = new Random();
+        int index = rand.nextInt(peopleArrayList.size());
+        long start_time = System.nanoTime();
+        peopleArrayList.get(index);
+        long end_time = System.nanoTime();
+        System.out.println("Index: " + (end_time - start_time));
+    }
+
+    public void searchPersonArrayList(){
+        Random rand = new Random();
+        int index = rand.nextInt(peopleArrayList.size());
+        Person p = peopleArrayList.get(index);
+        long start_time = System.nanoTime();
+        peopleArrayList.indexOf(p);
+        long end_time = System.nanoTime();
+        System.out.println("Search: " + (end_time - start_time));
     }
 
 }
