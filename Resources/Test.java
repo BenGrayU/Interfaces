@@ -1,8 +1,10 @@
+package Resources;
+
 import java.lang.reflect.Constructor;
 import java.util.*;
 
 
-public class Test implements CollectionTest{
+public class Test implements CollectionTest {
 
     private ArrayList<Person> peopleArrayList = new ArrayList<>();
     private LinkedList<Person> peopleLinkedList = new LinkedList<>();
@@ -17,15 +19,9 @@ public class Test implements CollectionTest{
        this.size = size;
     }
 
-    public static void main(String[] args){
-        Test t = new Test();
-        t.setSize(10);
-        t.runTest(CollectionType.LINKED_LIST, TestType.ADD, 10);
-        t.runTest(CollectionType.LINKED_LIST, TestType.INDEX, 10);
-        t.runTest(CollectionType.LINKED_LIST, TestType.SEARCH, 10);
-    }
+
     @Override
-    public void runTest(CollectionType type, TestType test, int iterations) {
+    public void runTest(CollectionTest.CollectionType type, CollectionTest.TestType test, int iterations) {
         switch (type){
             case ARRAY_LIST:
                 switch (test){
