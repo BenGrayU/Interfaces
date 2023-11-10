@@ -1,14 +1,14 @@
-package Resources;
-
 import java.lang.reflect.Constructor;
 import java.util.*;
 
-
+/**
+ * @author grayb4
+ * */
 public class Test implements CollectionTest {
 
-    private ArrayList<Person> peopleArrayList = new ArrayList<>();
-    private LinkedList<Person> peopleLinkedList = new LinkedList<>();
-    private HashMap<String, Person> peopleHashMap = new HashMap<>();
+    private ArrayList<Person> peopleArrayList;
+    private LinkedList<Person> peopleLinkedList;
+    private HashMap<String, Person> peopleHashMap;
 
     private int size;
     public Test(){
@@ -19,6 +19,12 @@ public class Test implements CollectionTest {
        this.size = size;
     }
 
+    /**
+     * This gets which list type and test and sends it to the correct function for iterations abpunt of times
+     * @param type the type of list
+     * @param test the test we want to do
+     * @param iterations the amount of times we want to do it
+     * */
 
     @Override
     public void runTest(CollectionTest.CollectionType type, CollectionTest.TestType test, int iterations) {
@@ -82,7 +88,9 @@ public class Test implements CollectionTest {
                 break;
         }
     }
-
+    /**
+     * Array list functions
+     * */
     public void addpersonArrayList(){
         peopleArrayList = new ArrayList<>();
         for (int i = 0; i < size; i++) {
@@ -101,7 +109,9 @@ public class Test implements CollectionTest {
         peopleArrayList.indexOf(peopleArrayList.get(size/2));
 
     }
-
+    /**
+     * Linked list functions
+     * */
     public void addpersonLinkedList(){
         peopleLinkedList = new LinkedList<>();
         for (int i = 0; i < size; i++) {
@@ -119,6 +129,9 @@ public class Test implements CollectionTest {
         peopleLinkedList.get(size/2);
     }
 
+    /**
+     * Hash map functions
+     * */
     public void addPersonHashMap(){
         peopleHashMap = new HashMap<>();
         for (int i = 0; i < size; i++) {
